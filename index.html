@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admit Card Download Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .download-link {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .download-link a {
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function downloadAdmitCard() {
+            const rollNo = document.getElementById("rollNo").value.trim();
+            const link = document.getElementById("link");
+
+            if (rollNo !== "") {
+                // Simulate a dynamic admit card URL (you can modify this logic)
+                let fileUrl = "admitcards/" + rollNo + ".pdf";
+                link.innerHTML = `<a href="${fileUrl}" target="_blank" download>Download Admit Card</a>`;
+                document.querySelector(".download-link").style.display = "block";
+            } else {
+                alert("Please enter your Roll Number.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Admit Card Download Portal</h2>
+        <p>Enter your Roll Number to download your admit card.</p>
+        <input type="text" id="rollNo" placeholder="Enter Roll Number"><br>
+        <input type="submit" value="Download" onclick="downloadAdmitCard()">
+        <div class="download-link" id="link"></div>
+    </div>
+</body>
+</html>
